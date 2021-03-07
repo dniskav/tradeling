@@ -1,0 +1,9 @@
+{
+  "Hero": {
+    "title": "GitHub Searcher",
+    "subtitle" :"Search users or repositories below"
+  },
+  "Search" : {
+    "caption": "Start typing to search.."
+  }
+}
