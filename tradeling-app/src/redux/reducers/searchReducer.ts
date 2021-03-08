@@ -5,6 +5,7 @@ import {
   SET_SEARCH_TERM,
   SET_SEARCH_KIND,
   SET_USERS_LIST,
+  CLEAR_USERS_LIST,
   SET_PAGE,
 } from '../actions/index';
 
@@ -55,7 +56,13 @@ export const searchReducer = (
     case SET_USERS_LIST: {
       return {
         ...state,
-        users: [...(action.payload as [])],
+        users: [ ...state.users,...(action.payload as [])],
+      };
+    }
+    case CLEAR_USERS_LIST: {
+      return {
+        ...state,
+        users: [],
       };
     }
     case SET_PAGE: {

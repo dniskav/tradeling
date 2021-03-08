@@ -25,6 +25,11 @@ export const getRepos = createSelector(
   (state: any) => state.repos,
 );
 
+export const getPage = createSelector(
+  itemsSelector,
+  (state: any) => state.page,
+);
+
 export const getCurrentItem = createSelector(
   itemsSelector,
   (state: any) => state.currentItem,

@@ -4,7 +4,7 @@ import DropDown from '../UI/DropDown';
 import TextField from '../UI/TextField';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchKind, setSearchTerm, fetchItemsList, setitemsList, setUsersList } from '../../redux/actions/index';
+import { setSearchKind, setSearchTerm, fetchItemsList, setitemsList, setPage, clearUsersList } from '../../redux/actions/index';
 import { getKind, getTerm } from '../../redux/selectors/index';
 
 const Container = styled.div`
@@ -25,8 +25,9 @@ const Search: React.FC = () => {
       dispatch(fetchItemsList());
     } else {
       dispatch(setitemsList([]));
-      dispatch(setUsersList([]));
+      dispatch(clearUsersList());
     }
+    dispatch(setPage(1));
   }, [term, kind, dispatch]);
 
   return(

@@ -6,6 +6,7 @@ axios.defaults.headers.common = {'Authorization': `bearer ${token}`};
 export const GET_ITEMS_LIST = '@@actions/GET_ITEMS_LIST';
 export const SET_ITEMS_LIST = '@@actions/SET_ITEMS_LIST';
 export const SET_USERS_LIST = '@@actions/SET_USERS_LIST';
+export const CLEAR_USERS_LIST = '@@actions/CLEAR_USERS_LIST';
 export const SET_ITEM = '@@actions/SET_ITEM';
 export const SET_DETAIL_ITEM = '@@actions/SET_DETAIL_ITEM';
 export const ITEMS_LOADER = '@@actions/ITEMS_LOADER';
@@ -25,6 +26,8 @@ export const setPage = (page: number) => action(SET_PAGE, page);
 
 export const setUsersList = (users: any) => action(SET_USERS_LIST, users);
 
+export const clearUsersList = () => action(CLEAR_USERS_LIST);
+
 export const setSearchTerm = (term: string) => action(SET_SEARCH_TERM, term);
 
 export const setSearchKind = (kind: string) => action(SET_SEARCH_KIND, kind);
@@ -35,7 +38,7 @@ export const fetchItemsList = () => {
   return async (dispatch: any, getState: any) => {
     dispatch(itemsListLoader(true));
     const { kind, term, page } = getState().search;
-    const q = `https://api.github.com/search/${kind}?q=${term}&per_page=30&page=${page}`;
+    const q = `https://api.github.com/search/${kind}?q=${term}&per_page=21&page=${page}`;
     try {
       const itemsListRes = await axios.get(q, {});
       switch(kind) {
@@ -68,20 +71,4 @@ export const fetchUsersList = (list: []) => {
     ;
   }
 }
-
-export const fetchDetailItem = (id: any) => {
-  return async (dispatch: any, getState: any) => {
-    dispatch(itemsListLoader(true));
-    const q = `https://api.mercadolibre.com/items/${id}`;
-    try {
-      const detailItemRes = await axios.get(q, {});
-      const description = await axios.get(`${q}/description`, {});
-      dispatch(setDetailItem({...detailItemRes.data, description: description.data.plain_text}));
-    } catch (err) {
-      console.warn(`😢 ${err}`);
-    } finally {
-      dispatch(itemsListLoader(false));
-    }
-  };
-};
 

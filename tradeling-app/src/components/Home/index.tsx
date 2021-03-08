@@ -7,8 +7,11 @@ const Home: React.FC = () => {
 
   return (<>
     <div>
-      <Hero />
-      <Search />
+      <header>
+        <Hero />
+        <Search />
+      </header>
+
       <Results />
     </div>
   </>)
