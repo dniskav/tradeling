@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles/main.css';
-import Home from './components/index';
+import Home from './components/Home';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
         <Home />

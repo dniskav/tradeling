@@ -10,14 +10,10 @@ const InputText = styled.input`
     letter-spacing: 0.8px;
 `;
 
-interface ITextField {
-  placeholder: string;
-}
-
-const TextField: React.FC<ITextField> = ({ placeholder }) => {
+const TextField: React.FC<any> = (props) => {
 
   return (
-    <InputText type="text" placeholder={placeholder} />
+    <InputText {...props} />
   )
 }
 

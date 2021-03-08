@@ -23,7 +23,7 @@ const Container = styled.div`
   }
 `;
 
-const Hero = () => {
+const Hero: React.FC = () => {
   const { t } = useTranslation();
   return (
     <Container>
