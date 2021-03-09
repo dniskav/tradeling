@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { IApplicationState } from '../types';
+import { IApplicationState, IinitialState } from '../types';
 
 const itemsSelector = (state: IApplicationState) => state.search;
 const termSelector = (state: IApplicationState) => state.search;
@@ -7,35 +7,35 @@ const kindSelector = (state: IApplicationState) => state.search;
 
 export const getTerm = createSelector(
   termSelector,
-  (state: any) => state.term,
+  (state: IinitialState) => state.term,
 );
 
 export const getKind = createSelector(
   kindSelector,
-  (state: any) => state.kind,
+  (state: IinitialState) => state.kind,
 );
 
 export const getUsers = createSelector(
   itemsSelector,
-  (state: any) => state.users,
+  (state: IinitialState) => state.users,
 );
 
 export const getRepos = createSelector(
   itemsSelector,
-  (state: any) => state.repos,
+  (state: IinitialState) => state.repos,
 );
 
 export const getLoader = createSelector(
   itemsSelector,
-  (state: any) => state.itemsLoader,
+  (state: IinitialState) => state.itemsLoader,
 );
 
 export const getPage = createSelector(
   itemsSelector,
-  (state: any) => state.page,
+  (state: IinitialState) => state.page,
 );
 
 export const getResults = createSelector(
   itemsSelector,
-  (state: any) => state.results,
+  (state: IinitialState) => state.results,
 );

@@ -46,11 +46,18 @@ const InputSelect = styled.div`
   }
 `;
 
-const DropDown: React.FC<any> = (props) => {
+interface IDropDown {
+  value: any;
+  onChange: Function;
+}
+
+const DropDown: React.FC<IDropDown> = (props) => {
   const [value, setValue] = useState(props.value)
-  const onchange = (e: any) => {
-    setValue(e.target.value);
-    props.onChange(e.target.value);
+
+  const onchange: any = (e: Event) => {
+    const target = e.target as HTMLInputElement
+    setValue(target?.value);
+    props.onChange(target?.value);
   }
 
   return (

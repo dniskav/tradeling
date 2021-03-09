@@ -7,6 +7,7 @@ import TileUser from '../Tile/User';
 import TileRepo from '../Tile/Repo';
 import { setPage } from '../../redux/actions';
 import { fetchItemsList } from '../../redux/actions/index';
+import { IUser, IRepo } from '../../redux/types';
 
 const Results: React.FC = () => {
   const dispatch = useDispatch()
@@ -28,7 +29,7 @@ const Results: React.FC = () => {
       loader={null}
     >
     <div className="grid">
-      {kind === 'users' && users.map((result: any) => (
+      {kind === 'users' && users.map((result: IUser) => (
           <TileUser
             html_url={result.html_url}
             key={uuidv4()}
@@ -38,14 +39,14 @@ const Results: React.FC = () => {
             // stars={result.stars}
           />
           ))}
-      {kind === 'repositories' && repos.map((result: any) => (
+      {kind === 'repositories' && repos.map((result: IRepo) => (
           <TileRepo
             key={uuidv4()}
             name={result.name}
             url={result.html_url}
             language={result.location}
             stars={result.stargazers_count}
-            owner={result?.owner?.login}
+            owner={result.owner}
           />
           ))}
       </div>

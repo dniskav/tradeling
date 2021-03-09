@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
+
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  placeholder?: string;
+}
 
 const InputText = styled.input`
     border: 1px solid #999;
@@ -10,7 +14,7 @@ const InputText = styled.input`
     letter-spacing: 0.8px;
 `;
 
-const TextField: React.FC<any> = (props) => {
+const TextField: React.FC<InputProps> = (props) => {
 
   return (
     <InputText {...props} />
