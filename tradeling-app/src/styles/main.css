@@ -57,6 +57,12 @@ figure {
   width: 720px;
 }
 
+@media only screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
 .img-container,
 .img-container img {
   width: 120px;
