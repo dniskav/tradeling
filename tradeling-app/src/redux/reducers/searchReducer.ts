@@ -10,13 +10,14 @@ import {
   CLEAR_LIST,
   SET_PAGE,
 } from '../actions/index';
+import { IinitialState } from '../types';
 
-export const initialState: any = {
+
+export const initialState: IinitialState = {
   itemsLoader: false,
   results: [],
   users: [],
   repos: [],
-  currentItem: {},
   term: '',
   kind: 'users',
   page: 0,
@@ -28,7 +29,7 @@ export type actionType = Action<TypeConstant> &
   PayloadAction<TypeConstant, IActionType>;
 
 export const searchReducer = (
-  state: any = initialState,
+  state: IinitialState = initialState,
   action: Action<TypeConstant> & PayloadAction<TypeConstant, IActionType>,
 ): any => {
   switch (action.type) {
@@ -41,7 +42,7 @@ export const searchReducer = (
     case SET_DETAIL_ITEM: {
       return {
         ...state,
-        currentItem: { ...(action.payload as any) },
+        currentItem: { ...action.payload },
       };
     }
     case SET_SEARCH_TERM: {
@@ -59,7 +60,7 @@ export const searchReducer = (
     case SET_ITEMS_LIST: {
       return {
         ...state,
-        results: [...state.results,...(action.payload as [])],
+        results: [...state.results,...action.payload],
       };
     }
     case SET_USERS_LIST: {
