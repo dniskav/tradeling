@@ -1,6 +1,7 @@
 import React from 'react';
 import logoSrc from '../../assets/GitHub-Mark-64px.png';
-const Logo = () => {
+
+const Logo: React.FC = () => {
 
   return(
     <figure>

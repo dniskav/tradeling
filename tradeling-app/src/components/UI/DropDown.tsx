@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import styled from 'styled-components';
 
 const InputSelect = styled.div`
@@ -46,12 +46,11 @@ const InputSelect = styled.div`
   }
 `;
 
-const DropDown = () => {
+const DropDown: React.FC<any> = (props) => {
   return (
     <InputSelect>
-      <select>
-        <option>Users</option>
-        <option>ipsum</option>
+      <select {...props}>
+        {props.children}
       </select>
     </InputSelect>
   );
