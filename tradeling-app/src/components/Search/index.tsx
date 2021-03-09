@@ -4,7 +4,7 @@ import DropDown from '../UI/DropDown';
 import TextField from '../UI/TextField';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchKind, setSearchTerm, fetchItemsList, setitemsList, setPage, clearUsersList } from '../../redux/actions/index';
+import { setSearchKind, setSearchTerm, fetchItemsList, setitemsList, setPage, clearList } from '../../redux/actions/index';
 import { getKind, getTerm } from '../../redux/selectors/index';
 
 const Container = styled.div`
@@ -25,17 +25,17 @@ const Search: React.FC = () => {
       dispatch(fetchItemsList());
     } else {
       dispatch(setitemsList([]));
-      dispatch(clearUsersList());
+      dispatch(clearList());
     }
     dispatch(setPage(1));
   }, [term, kind, dispatch]);
 
   return(
     <Container>
-      <TextField placeholder={t('Search.caption')} onChange={(e: any) => dispatch(setSearchTerm(e.target.value))}/>
-      <DropDown onChange={(e: any) => dispatch(setSearchKind(e.target.value))}>
-        <option value="users">Users</option>
-        <option value="repositories">Repo</option>
+      <TextField placeholder={t('Search.caption')} onChange={(e: any) => dispatch(setSearchTerm(e.target.value))} value={term}/>
+      <DropDown value={kind} onChange={(e: any) => dispatch(setSearchKind(e))}>
+        <option value="users">{t('Search.user')}</option>
+        <option value="repositories">{t('Search.repo')}</option>
       </DropDown>
     </Container>
   )

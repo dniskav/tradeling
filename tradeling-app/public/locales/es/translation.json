@@ -1,0 +1,15 @@
+{
+  "Hero": {
+    "title": "Buscador de GitHub",
+    "subtitle" :"Buscar por usuarios o repositorios."
+  },
+  "Search" : {
+    "caption": "Empiece a digitar para buscar...",
+    "user": "Usuario",
+    "repo": "Repo"
+  },
+  "tile": {
+    "owner": "Dueño",
+    "goHere": "Ir allá!"
+  }
+}

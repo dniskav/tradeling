@@ -43,6 +43,14 @@ figure {
   width: 100%;
 }
 
+.description h3 {
+  margin: 0;
+}
+
+.description a {
+  color: #444;
+}
+
 .App {
   text-align: center;
   margin: 0 auto;

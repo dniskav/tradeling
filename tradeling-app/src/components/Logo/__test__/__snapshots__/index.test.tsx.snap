@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logo /> Logo should match snapshot 1`] = `
+<figure>
+  <img
+    alt="logo"
+    src="GitHub-Mark-64px.png"
+    width="44px"
+  />
+</figure>
+`;
