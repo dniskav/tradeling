@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const InputSelect = styled.div`
@@ -47,9 +47,15 @@ const InputSelect = styled.div`
 `;
 
 const DropDown: React.FC<any> = (props) => {
+  const [value, setValue] = useState(props.value)
+  const onchange = (e: any) => {
+    setValue(e.target.value);
+    props.onChange(e.target.value);
+  }
+
   return (
     <InputSelect>
-      <select {...props}>
+      <select {...props} onChange={onchange} value={value}>
         {props.children}
       </select>
     </InputSelect>

@@ -11,20 +11,10 @@ export interface IReducerAction<TPayload>
 export interface IApplicationState {
   search: {
     itemsLoader: boolean;
-    results: IResultItem[];
+    results: [];
+    users: [];
+    repos: [];
     term: string;
     kind: string;
   }
 }
-
-export interface IResultItem {
-  id: string;
-  image: { 
-    src: string;
-    alt: string;
-  };
-  data: {
-    description: string;
-    status: string;
-  };
-};

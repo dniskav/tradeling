@@ -25,12 +25,17 @@ export const getRepos = createSelector(
   (state: any) => state.repos,
 );
 
+export const getLoader = createSelector(
+  itemsSelector,
+  (state: any) => state.itemsLoader,
+);
+
 export const getPage = createSelector(
   itemsSelector,
   (state: any) => state.page,
 );
 
-export const getCurrentItem = createSelector(
+export const getResults = createSelector(
   itemsSelector,
-  (state: any) => state.currentItem,
+  (state: any) => state.results,
 );

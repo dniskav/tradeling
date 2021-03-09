@@ -1,36 +1,51 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getRepos, getUsers, getPage } from '../../redux/selectors';
+import { getRepos, getUsers, getPage, getKind, getResults } from '../../redux/selectors';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { v4 as uuidv4 } from 'uuid';
-import Tile from '../Tile/index';
+import TileUser from '../Tile/User';
+import TileRepo from '../Tile/Repo';
 import { setPage } from '../../redux/actions';
 import { fetchItemsList } from '../../redux/actions/index';
 
 const Results: React.FC = () => {
   const dispatch = useDispatch()
+  const kind = useSelector(getKind);
+  const page = useSelector(getPage);
   const users = useSelector(getUsers);
   const repos = useSelector(getRepos);
-  const page = useSelector(getPage);
+  const results = useSelector(getResults);
   const next = () => {
     dispatch(setPage(page + 1)); 
     dispatch(fetchItemsList())
   }
+
   return (
     <InfiniteScroll
-      dataLength={users.length}
+      dataLength={results.length}
       next={next}
       hasMore={true}
       loader={null}
     >
     <div className="grid">
-      {users.map((result: any) => (
-          <Tile
+      {kind === 'users' && users.map((result: any) => (
+          <TileUser
+            html_url={result.html_url}
             key={uuidv4()}
             avatar_url={result.avatar_url}
-            login={result.login}
             name={result.name}
-            stars={result.stars}
+            location={result.location}
+            // stars={result.stars}
+          />
+          ))}
+      {kind === 'repositories' && repos.map((result: any) => (
+          <TileRepo
+            key={uuidv4()}
+            name={result.name}
+            url={result.html_url}
+            language={result.location}
+            stars={result.stargazers_count}
+            owner={result?.owner?.login}
           />
           ))}
       </div>

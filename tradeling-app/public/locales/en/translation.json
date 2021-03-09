@@ -4,6 +4,12 @@
     "subtitle" :"Search users or repositories below"
   },
   "Search" : {
-    "caption": "Start typing to search.."
+    "caption": "Start typing to search...",
+    "user": "User",
+    "repo": "Repo"
+  },
+  "Tile": {
+    "owner": "Owner",
+    "goHere": "Go here!"
   }
 }

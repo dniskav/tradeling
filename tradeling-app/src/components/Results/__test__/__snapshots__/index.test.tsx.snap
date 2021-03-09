@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Results /> Results should match snapshot 1`] = `
+<InfiniteScroll
+  dataLength={0}
+  hasMore={true}
+  loader={null}
+  next={[Function]}
+>
+  <div
+    className="grid"
+  />
+</InfiniteScroll>
+`;

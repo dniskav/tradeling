@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Results /> Search should match snapshot 1`] = `
+<styled.div>
+  <TextField
+    onChange={[Function]}
+    placeholder="Search.caption"
+    value={Array []}
+  />
+  <DropDown
+    onChange={[Function]}
+    value={Array []}
+  >
+    <option
+      value="users"
+    >
+      Search.user
+    </option>
+    <option
+      value="repositories"
+    >
+      Search.repo
+    </option>
+  </DropDown>
+</styled.div>
+`;

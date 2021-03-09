@@ -23,6 +23,7 @@ i18next
     },
     detection: {
       order: ['htmlTag'],
+      caches: [],
     },
   });
 
